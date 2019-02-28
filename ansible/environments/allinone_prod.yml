@@ -27,5 +27,4 @@ libvirt_config:
 ansible_vars:
   irma_environment: production
   vagrant: true
-  irma_release: HEAD
   irma_code_archive_generation: True

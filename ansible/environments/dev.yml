@@ -39,6 +39,8 @@ servers:
         share_exclude:
           - .git/
           - venv/
+    environment: 
+        rabbitmq_os_package: true
   - name: avs-linux.irma
     ip: 172.16.1.32
     ansible_groups: [comodo, trid]
