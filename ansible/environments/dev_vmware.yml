@@ -1,0 +1,76 @@
+---
+
+servers:
+  - name: frontend.irma
+    ip: 172.16.1.30
+    ansible_groups: [frontend, sql-server]
+    box: debian_vmware
+    cpus: 2
+    memory: 2048
+    shares:
+      - share_from: ../frontend
+        share_to: /opt/irma/irma-frontend/releases/sync
+        share_exclude:
+          - .git/
+          - venv/
+          - web/dist
+          - web/node_modules
+          - app/components
+      - share_from: ../common
+        share_to: /opt/irma/irma-common/releases/sync
+        share_exclude:
+          - .git/
+          - venv/
+  - name: brain.irma
+    ip: 172.16.1.31
+    ansible_groups: [brain]
+    box: debian_vmware
+    cpus: 2
+    memory: 2048
+    rabbitmq_os_package: true
+    shares:
+      - share_from: ../brain
+        share_to: /opt/irma/irma-brain/releases/sync
+        share_exclude:
+          - .git/
+          - venv/
+          - db/
+      - share_from: ../common
+        share_to: /opt/irma/irma-common/releases/sync
+        share_exclude:
+          - .git/
+          - venv/
+  - name: avs-linux.irma
+    ip: 172.16.1.32
+    ansible_groups: [trid, escan, fsecure, bitdefender, fprot, virustotal, static-analyzer]
+    #Ikke fungerende antivirus i egen dokumentasjon på google drive
+    box: debian_vmware
+    cpus: 2
+    memory: 2048
+    rabbitmq_os_package: true
+    shares:
+      - share_from: ../brain
+        share_to: /opt/irma/irma-brain/releases/sync
+        share_exclude:
+          - .git/
+          - venv/
+          - db/
+      - share_from: ../common
+        share_to: /opt/irma/irma-common/releases/sync
+        share_exclude:
+          - .git/
+          - venv/
+
+libvirt_config:
+  driver: kvm
+  # connect_via_ssh: true
+  # host:
+  # username:
+  # storage_pool_name:
+  # id_ssh_key_file:
+
+ansible_vars:
+  irma_environment: development
+  vagrant: true
+
+

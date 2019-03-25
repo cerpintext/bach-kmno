@@ -47,7 +47,7 @@
   roles:
     - { role: quarkslab.systemd, tags: systemd, systemd_units: "{{ systemd_units_brain }}" }
     - { role: quarkslab.rsyslog, tags: rsyslog }
-    - { role: Mayeu.RabbitMQ, tags: rabbitmq }
+    - { role: Mayeu.RabbitMQ, tags: rabbitmq, rabbitmq_os_package: true }
    # - { role: quarkslab.pureftpd, tags: pureftpd }
     - { role: quarkslab.irma_provisioning_brain, tags: brain }
     - { role: quarkslab.ufw_additional, tags: ufw, ufw_additional_rules: "{{ brain_ufw_additional_rules }}" }
