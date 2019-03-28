@@ -49,7 +49,7 @@ servers:
     memory: 2048
     rabbitmq_os_package: true
     shares:
-      - share_from: ../brain
+      - share_from: ../probe
         share_to: /opt/irma/irma-probe/releases/sync
         share_exclude:
           - .git/
