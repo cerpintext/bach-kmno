@@ -27,7 +27,6 @@ servers:
     box: debian_vmware
     cpus: 2
     memory: 2048
-    rabbitmq_os_package: true
     shares:
       - share_from: ../brain
         share_to: /opt/irma/irma-brain/releases/sync
@@ -43,11 +42,9 @@ servers:
   - name: avs-linux.irma
     ip: 172.16.1.32
     ansible_groups: [trid, escan, fsecure, bitdefender, fprot, virustotal, static-analyzer, yara ]
-    #Ikke fungerende antivirus i egen dokumentasjon på google drive
     box: debian_vmware
     cpus: 2
     memory: 2048
-    rabbitmq_os_package: true
     shares:
       - share_from: ../probe
         share_to: /opt/irma/irma-probe/releases/sync
@@ -60,6 +57,24 @@ servers:
         share_exclude:
           - .git/
           - venv/
+  - name: avs-windows.irma
+    ip: 172.16.1.33
+    ansible_groups: []
+    box: windows_vmware
+    cpus: 2
+    memory: 2048
+    shares:
+            - share_from: ../probe
+              share_to: /opt/irma/irma-probe/releases/sync
+              share_exclude:
+                      - .git/
+                      - venv/
+                      - db/
+            - share_from: ../common
+              share_to: /opt/irma/irma-common/releases/sync
+              share_exclude:
+                      - .git/
+                      - venv/
 
 libvirt_config:
   driver: kvm
