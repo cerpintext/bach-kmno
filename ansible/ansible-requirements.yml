@@ -27,3 +27,6 @@
 - src: https://github.com/willshersystems/ansible-sshd.git
   version: v0.4.7
   name: willshersystems.sshd
+
+- src: https://github.com/nikolaifa/yara.git
+  name: nikolaifa.yara
