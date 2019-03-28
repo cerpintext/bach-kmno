@@ -50,7 +50,7 @@ servers:
     rabbitmq_os_package: true
     shares:
       - share_from: ../brain
-        share_to: /opt/irma/irma-brain/releases/sync
+        share_to: /opt/irma/irma-probe/releases/sync
         share_exclude:
           - .git/
           - venv/
