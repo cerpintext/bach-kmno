@@ -42,7 +42,7 @@ servers:
           - venv/
   - name: avs-linux.irma
     ip: 172.16.1.32
-    ansible_groups: [trid, escan, fsecure, bitdefender, fprot, virustotal, static-analyzer ]
+    ansible_groups: [trid, escan, fsecure, bitdefender, fprot, virustotal, static-analyzer, yara ]
     #Ikke fungerende antivirus i egen dokumentasjon på google drive
     box: debian_vmware
     cpus: 2
