@@ -1,25 +1,25 @@
 ssh pull of branch:  
 
 ```
-git clone --recursive git@github.com:krisshol/bach-kmno.git -b submodule
+git clone --recursive git@github.com:krisshol/bach-kmno.git
 ```
 
 or
 
 ```
-git clone --recurse-submodules git@github.com:krisshol/bach-kmno.git -b submodule
+git clone --recurse-submodules git@github.com:krisshol/bach-kmno.git
 ```
 
 https pull of branch:
 
 ```
-git clone --recursive https://github.com/krisshol/bach-kmno.git -b submodule
+git clone --recursive https://github.com/krisshol/bach-kmno.git
 ```
 
 or
 
 ```
-git clone --recurse-submodules https://github.com/krisshol/bach-kmno.git -b submodule
+git clone --recurse-submodules https://github.com/krisshol/bach-kmno.git
 ```
 
 IRMA: Incident Response & Malware Analysis
