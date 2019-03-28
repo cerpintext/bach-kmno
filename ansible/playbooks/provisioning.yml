@@ -190,10 +190,16 @@
   become: yes
   roles:
     - { role: quarkslab.unarchiver, tags: unarchiver }
+
 - name: LIEF provisioning
   hosts: lief
   roles:
     - { role: quarkslab.lief, tags: lief }
+
+- name: Yara provisioning
+  hosts: yara
+  roles:
+    - { role: nikolaifa.yara, tags: yara }
 
 - name: Dummy provisionning
   hosts: dummy

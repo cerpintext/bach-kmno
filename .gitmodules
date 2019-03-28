@@ -1,4 +1,4 @@
 [submodule "ansible/irma-ansible"]
 	path = ansible/irma-ansible
-	url = ../irma-ansible.git
+	url = https://github.com/quarkslab/irma-ansible.git
   branch = master
